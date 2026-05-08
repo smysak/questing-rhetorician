@@ -44,3 +44,15 @@ button {
 .hidden {
     display: none;
 }
+
+.ethos {
+    color: lightgreen;
+}
+
+.pathos {
+    color: lightpink;
+}
+
+.logos {
+    color: lightblue;
+}

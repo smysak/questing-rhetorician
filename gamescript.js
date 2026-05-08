@@ -32,6 +32,8 @@ const startButton = document.getElementById('startGame');
 const protospace = document.getElementById('protospaceArea');
 const encounterButton = document.getElementById('startEncounter');
 const encounterspace = document.getElementById('encounterArea');
+const winScreen = document.getElementById('winScreen');
+const loseScreen = document.getElementById('loseScreen');
 
 buttons.forEach(button => {
 	button.addEventListener('mouseover', () => {
@@ -59,14 +61,15 @@ encounterButton.addEventListener('click', () => {
 
 	let adjective = generateTrait();
 	adjectiveSpan.innerText = adjective;
-	if (adjective === "soft-hearted") {
-		adjectiveSpan.style.color = "pink";
-	};
+	
 	if (adjective === "gullible") {
-		adjectiveSpan.style.color = "lightgreen";
+		adjectiveSpan.classList.add("ethos");
+	};
+	if (adjective === "soft-hearted") {
+		adjectiveSpan.classList.add("pathos");
 	};
 	if (adjective === "well-schooled") {
-		adjectiveSpan.style.color = "lightblue";
+		adjectiveSpan.classList.add("logos");
 	};
 
 	sentenceSpan.innerText = dictionChoices[0].sentence;
@@ -76,4 +79,32 @@ encounterButton.addEventListener('click', () => {
 	selectionC.innerText = dictionChoices[0].logos;
 
 	encounterspace.classList.toggle("hidden");
+
+	selectionA.addEventListener('click', () => {
+		encounterspace.classList.toggle("hidden");
+		if (adjectiveSpan.classList.contains("ethos")) {
+			winScreen.classList.toggle("hidden");
+		} else {
+			loseScreen.classList.toggle("hidden");
+		}
+	});
+
+	selectionB.addEventListener('click', () => {
+		encounterspace.classList.toggle("hidden");
+		if (adjectiveSpan.classList.contains("pathos")) {
+			winScreen.classList.toggle("hidden");
+		} else {
+			loseScreen.classList.toggle("hidden");
+		}
+	});
+
+	selectionC.addEventListener('click', () => {
+		encounterspace.classList.toggle("hidden");
+		if (adjectiveSpan.classList.contains("logos")) {
+			winScreen.classList.toggle("hidden");
+		} else {
+			loseScreen.classList.toggle("hidden");
+		}
+	});
+	
 });
