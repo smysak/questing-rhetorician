@@ -1,3 +1,5 @@
+const { useActionState } = require("react");
+
 function generateTrait() {
 	const trait = Math.random();
 	console.log(trait);
@@ -9,3 +11,18 @@ function generateTrait() {
 	} else return `academic`;
 }
 
+const dictionChoices = [
+	{	sentence: `We must come together, and work as part of a collective ______`,
+	
+		ethos: "enterprise",
+		pathos: "concern",
+		logos: "action",
+	},
+	
+	{	sentence: `I understand that your life is difficult, and your days are filled with  ______`,
+		
+		ethos: "struggle",
+		pathos: "suffering",
+		logos: "exertion",
+	},
+]
