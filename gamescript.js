@@ -26,10 +26,17 @@ const dictionChoices = [
 ]
 
 const gamespace = document.getElementById('gamespaceArea');
+const intro = document.getElementById('introduction');
+const startButton = document.getElementById('startGame');
 const protospace = document.getElementById('protospaceArea');
 const encounterButton = document.getElementById('startEncounter');
 
+startButton.addEventListener('click', function() {
+	intro.classList.toggle("hidden");
+	protospace.classList.toggle("hidden");
+});
+
 
 encounterButton.addEventListener('click', function() {
-	protospace.style.display = 'none';
+	protospace.classList.toggle("hidden");
 });
