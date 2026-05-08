@@ -39,6 +39,7 @@ button {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
+    overflow: auto;
 }
 
 .hidden {
