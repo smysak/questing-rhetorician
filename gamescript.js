@@ -1,5 +1,3 @@
-const { useActionState } = require("react");
-
 function generateTrait() {
 	const trait = Math.random();
 	console.log(trait);
