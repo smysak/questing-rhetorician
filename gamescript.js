@@ -31,5 +31,5 @@ const encounterButton = document.getElementById('startEncounter');
 
 
 encounterButton.addEventListener('click', function() {
-	gamespace.removeChild(protospace);
+	protospace.style.display = 'none';
 });
