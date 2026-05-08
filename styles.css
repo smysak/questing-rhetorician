@@ -6,6 +6,17 @@ body {
     display: flex;
 }
 
+button {
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 700;
+    border: 5px solid aliceblue;
+    border-radius: 8px;
+    background-color: black;
+    color: aliceblue;
+    font-size: 24px;
+    padding: 6px 12px;
+}
+
 #gameArea {
     background-color: black;
     height: 70vh;
