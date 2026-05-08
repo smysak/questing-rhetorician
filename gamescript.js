@@ -3,10 +3,10 @@ function generateTrait() {
 	console.log(trait);
 
 	if (trait <=0.333) {
-		return `easily-impressed`;
+		return `gullible`;
 	} else if (trait >=0.667) {
 		return `soft-hearted`;
-	} else return `academic`;
+	} else return `well-schooled`;
 }
 
 const dictionChoices = [
@@ -31,6 +31,7 @@ const intro = document.getElementById('introduction');
 const startButton = document.getElementById('startGame');
 const protospace = document.getElementById('protospaceArea');
 const encounterButton = document.getElementById('startEncounter');
+const encounterspace = document.getElementById('encounterArea');
 
 buttons.forEach(button => {
 	button.addEventListener('mouseover', () => {
@@ -47,7 +48,32 @@ startButton.addEventListener('click', () => {
 	protospace.classList.toggle("hidden");
 });
 
+const adjectiveSpan = document.getElementById('adjective');
+const sentenceSpan = document.getElementById('sentenceBody');
+const selectionA = document.getElementById('a');
+const selectionB = document.getElementById('b');
+const selectionC = document.getElementById('c');
 
 encounterButton.addEventListener('click', () => {
 	protospace.classList.toggle("hidden");
+
+	let adjective = generateTrait();
+	adjectiveSpan.innerText = adjective;
+	if (adjective === "soft-hearted") {
+		adjectiveSpan.style.color = "pink";
+	};
+	if (adjective === "gullible") {
+		adjectiveSpan.style.color = "lightgreen";
+	};
+	if (adjective === "well-schooled") {
+		adjectiveSpan.style.color = "lightblue";
+	};
+
+	sentenceSpan.innerText = dictionChoices[0].sentence;
+
+	selectionA.innerText = dictionChoices[0].ethos;
+	selectionB.innerText = dictionChoices[0].pathos;
+	selectionC.innerText = dictionChoices[0].logos;
+
+	encounterspace.classList.toggle("hidden");
 });

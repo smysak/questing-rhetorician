@@ -19,13 +19,13 @@ button {
     color: aliceblue;
     font-size: 24px;
     padding: 6px 12px;
+    margin: 0px 24px;
 }
 
 .highlitButton {
-    border-color: lightblue;
-    color: lightblue;
+    border-color: lightyellow;
+    color: lightyellow;
 }
-
 
 #gamespaceArea {
     background-color: black;
