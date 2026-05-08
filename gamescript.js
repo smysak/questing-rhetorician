@@ -24,3 +24,4 @@ const dictionChoices = [
 		logos: "exertion",
 	},
 ]
+
