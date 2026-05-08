@@ -17,6 +17,12 @@ button {
     padding: 6px 12px;
 }
 
+.highlitButton {
+    border-color: lightblue;
+    color: lightblue;
+}
+
+
 #gamespaceArea {
     background-color: black;
     height: 70vh;
