@@ -25,3 +25,11 @@ const dictionChoices = [
 	},
 ]
 
+const gamespace = document.getElementById('gamespaceArea');
+const protospace = document.getElementById('protospaceArea');
+const encounterButton = document.getElementById('startEncounter');
+
+
+encounterButton.addEventListener('click', function() {
+	gamespace.removeChild(protospace);
+});
