@@ -23,6 +23,13 @@ const dictionChoices = [
 		pathos: "suffering",
 		logos: "exertion",
 	},
+
+	{	sentence: `There are serious issues before us, but we address them with ______ decisions`,
+
+		ethos: "judicious",
+		pathos: "humane",
+		logos: "reasonable",
+	}
 ]
 
 const gamespace = document.getElementById('gamespaceArea');
