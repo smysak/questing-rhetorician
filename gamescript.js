@@ -1,6 +1,5 @@
 function generateTrait() {
 	const trait = Math.random();
-	console.log(trait);
 
 	if (trait <=0.333) {
 		return `gullible`;
@@ -76,25 +75,6 @@ const selectionC = document.getElementById('c');
 const handleEncounter = function () {
 	protospace.classList.toggle("hidden");
 
-	let adjective = generateTrait();
-	adjectiveSpan.innerText = adjective;
-	
-	if (adjective === "gullible") {
-		adjectiveSpan.classList.add("ethos");
-	};
-	if (adjective === "soft-hearted") {
-		adjectiveSpan.classList.add("pathos");
-	};
-	if (adjective === "well-schooled") {
-		adjectiveSpan.classList.add("logos");
-	};
-
-	sentenceSpan.innerText = dictionChoices[0].sentence;
-
-	selectionA.innerText = dictionChoices[0].ethos;
-	selectionB.innerText = dictionChoices[0].pathos;
-	selectionC.innerText = dictionChoices[0].logos;
-
 	const handleEthosChoice = function () {
 		encounterspace.classList.toggle("hidden");
 		if (adjectiveSpan.classList.contains("ethos")) {
@@ -104,7 +84,13 @@ const handleEncounter = function () {
 				winScreen.classList.toggle("hidden");
 			} else {
 				selectionA.removeEventListener('click', handleEthosChoice);
+				selectionA.removeEventListener('click', handlePathosChoice);
+				selectionA.removeEventListener('click', handleLogosChoice);
+				selectionB.removeEventListener('click', handleEthosChoice);
 				selectionB.removeEventListener('click', handlePathosChoice);
+				selectionB.removeEventListener('click', handleLogosChoice);
+				selectionC.removeEventListener('click', handleEthosChoice);
+				selectionC.removeEventListener('click', handlePathosChoice);
 				selectionC.removeEventListener('click', handleLogosChoice);
 				protospace.classList.toggle("hidden");
 				encounterButton.addEventListener('click', handleEncounter), {once: true};
@@ -123,7 +109,13 @@ const handleEncounter = function () {
 				winScreen.classList.toggle("hidden");
 			} else {
 				selectionA.removeEventListener('click', handleEthosChoice);
+				selectionA.removeEventListener('click', handlePathosChoice);
+				selectionA.removeEventListener('click', handleLogosChoice);
+				selectionB.removeEventListener('click', handleEthosChoice);
 				selectionB.removeEventListener('click', handlePathosChoice);
+				selectionB.removeEventListener('click', handleLogosChoice);
+				selectionC.removeEventListener('click', handleEthosChoice);
+				selectionC.removeEventListener('click', handlePathosChoice);
 				selectionC.removeEventListener('click', handleLogosChoice);
 				protospace.classList.toggle("hidden");
 				encounterButton.addEventListener('click', handleEncounter), {once: true};
@@ -142,7 +134,13 @@ const handleEncounter = function () {
 				winScreen.classList.toggle("hidden");
 			} else {
 				selectionA.removeEventListener('click', handleEthosChoice);
+				selectionA.removeEventListener('click', handlePathosChoice);
+				selectionA.removeEventListener('click', handleLogosChoice);
+				selectionB.removeEventListener('click', handleEthosChoice);
 				selectionB.removeEventListener('click', handlePathosChoice);
+				selectionB.removeEventListener('click', handleLogosChoice);
+				selectionC.removeEventListener('click', handleEthosChoice);
+				selectionC.removeEventListener('click', handlePathosChoice);
 				selectionC.removeEventListener('click', handleLogosChoice);
 				protospace.classList.toggle("hidden");
 				encounterButton.addEventListener('click', handleEncounter), {once: true};
@@ -152,11 +150,75 @@ const handleEncounter = function () {
 		}
 	}
 
+	let adjective = generateTrait();
+	adjectiveSpan.innerText = adjective;
+	
+	if (adjective === "gullible") {
+		adjectiveSpan.classList.add("ethos");
+	};
+	if (adjective === "soft-hearted") {
+		adjectiveSpan.classList.add("pathos");
+	};
+	if (adjective === "well-schooled") {
+		adjectiveSpan.classList.add("logos");
+	};
+
+	sentenceSpan.innerText = dictionChoices[0].sentence;
+
+	let randomizer = Math.floor(Math.random() * 6) + 1;
+	switch (randomizer) {
+		case 1:
+			selectionA.innerText = dictionChoices[0].ethos;
+			selectionB.innerText = dictionChoices[0].pathos;
+			selectionC.innerText = dictionChoices[0].logos;
+			selectionA.addEventListener('click', handleEthosChoice);
+			selectionB.addEventListener('click', handlePathosChoice);
+			selectionC.addEventListener('click', handleLogosChoice);
+			break;
+		case 2:
+			selectionA.innerText = dictionChoices[0].pathos;
+			selectionB.innerText = dictionChoices[0].logos;
+			selectionC.innerText = dictionChoices[0].ethos;
+			selectionA.addEventListener('click', handlePathosChoice);
+			selectionB.addEventListener('click', handleLogosChoice);
+			selectionC.addEventListener('click', handleEthosChoice);
+			break;
+		case 3:
+			selectionA.innerText = dictionChoices[0].logos;
+			selectionB.innerText = dictionChoices[0].ethos;
+			selectionC.innerText = dictionChoices[0].pathos;
+			selectionA.addEventListener('click', handleLogosChoice);
+			selectionB.addEventListener('click', handleEthosChoice);
+			selectionC.addEventListener('click', handlePathosChoice);
+			break;
+		case 4:
+			selectionA.innerText = dictionChoices[0].logos;
+			selectionB.innerText = dictionChoices[0].pathos;
+			selectionC.innerText = dictionChoices[0].ethos;
+			selectionA.addEventListener('click', handleLogosChoice);
+			selectionB.addEventListener('click', handlePathosChoice);
+			selectionC.addEventListener('click', handleEthosChoice);
+			break;
+		case 5:
+			selectionA.innerText = dictionChoices[0].pathos;
+			selectionB.innerText = dictionChoices[0].ethos;
+			selectionC.innerText = dictionChoices[0].logos;
+			selectionA.addEventListener('click', handlePathosChoice);
+			selectionB.addEventListener('click', handleEthosChoice);
+			selectionC.addEventListener('click', handleLogosChoice);
+			break;
+		case 6:
+			selectionA.innerText = dictionChoices[0].ethos;
+			selectionB.innerText = dictionChoices[0].logos;
+			selectionC.innerText = dictionChoices[0].pathos;
+			selectionA.addEventListener('click', handleEthosChoice);
+			selectionB.addEventListener('click', handleLogosChoice);
+			selectionC.addEventListener('click', handlePathosChoice);
+			break;
+	}
+
 	encounterspace.classList.toggle("hidden");
 
-	selectionA.addEventListener('click', handleEthosChoice), {once: true};
-	selectionB.addEventListener('click', handlePathosChoice), {once: true};
-	selectionC.addEventListener('click', handleLogosChoice), {once: true};
 }
 
 encounterButton.addEventListener('click', handleEncounter), {once: true};
