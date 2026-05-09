@@ -56,7 +56,7 @@ const selectionA = document.getElementById('a');
 const selectionB = document.getElementById('b');
 const selectionC = document.getElementById('c');
 
-encounterButton.addEventListener('click', () => {
+const handleEncounter = function () {
 	protospace.classList.toggle("hidden");
 
 	let adjective = generateTrait();
@@ -78,33 +78,68 @@ encounterButton.addEventListener('click', () => {
 	selectionB.innerText = dictionChoices[0].pathos;
 	selectionC.innerText = dictionChoices[0].logos;
 
-	encounterspace.classList.toggle("hidden");
-
-	selectionA.addEventListener('click', () => {
+	const handleEthosChoice = function () {
 		encounterspace.classList.toggle("hidden");
 		if (adjectiveSpan.classList.contains("ethos")) {
-			winScreen.classList.toggle("hidden");
+			adjectiveSpan.classList.remove("ethos");
+			dictionChoices.shift();
+			if (dictionChoices.length === 0) {
+				winScreen.classList.toggle("hidden");
+			} else {
+				selectionA.removeEventListener('click', handleEthosChoice);
+				selectionB.removeEventListener('click', handlePathosChoice);
+				selectionC.removeEventListener('click', handleLogosChoice);
+				protospace.classList.toggle("hidden");
+				encounterButton.addEventListener('click', handleEncounter), {once: true};
+			}
 		} else {
 			loseScreen.classList.toggle("hidden");
 		}
-	});
+	}
 
-	selectionB.addEventListener('click', () => {
+	const handlePathosChoice = function () {
 		encounterspace.classList.toggle("hidden");
 		if (adjectiveSpan.classList.contains("pathos")) {
-			winScreen.classList.toggle("hidden");
+			adjectiveSpan.classList.remove("pathos");
+			dictionChoices.shift();
+			if (dictionChoices.length === 0) {
+				winScreen.classList.toggle("hidden");
+			} else {
+				selectionA.removeEventListener('click', handleEthosChoice);
+				selectionB.removeEventListener('click', handlePathosChoice);
+				selectionC.removeEventListener('click', handleLogosChoice);
+				protospace.classList.toggle("hidden");
+				encounterButton.addEventListener('click', handleEncounter), {once: true};
+			}
 		} else {
 			loseScreen.classList.toggle("hidden");
 		}
-	});
+	}
 
-	selectionC.addEventListener('click', () => {
+	const handleLogosChoice = function () {
 		encounterspace.classList.toggle("hidden");
 		if (adjectiveSpan.classList.contains("logos")) {
-			winScreen.classList.toggle("hidden");
+			adjectiveSpan.classList.remove("logos");
+			dictionChoices.shift();
+			if (dictionChoices.length === 0) {
+				winScreen.classList.toggle("hidden");
+			} else {
+				selectionA.removeEventListener('click', handleEthosChoice);
+				selectionB.removeEventListener('click', handlePathosChoice);
+				selectionC.removeEventListener('click', handleLogosChoice);
+				protospace.classList.toggle("hidden");
+				encounterButton.addEventListener('click', handleEncounter), {once: true};
+			}
 		} else {
 			loseScreen.classList.toggle("hidden");
 		}
-	});
-	
-});
+	}
+
+	encounterspace.classList.toggle("hidden");
+
+	selectionA.addEventListener('click', handleEthosChoice), {once: true};
+	selectionB.addEventListener('click', handlePathosChoice), {once: true};
+	selectionC.addEventListener('click', handleLogosChoice), {once: true};
+}
+
+encounterButton.addEventListener('click', handleEncounter), {once: true};
