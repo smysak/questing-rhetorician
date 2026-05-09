@@ -43,6 +43,7 @@ shuffle(dictionChoices);
 
 const gamespace = document.getElementById('gamespaceArea');
 const buttons = document.querySelectorAll('button');
+const sound = document.getElementById('hoverSound');
 const intro = document.getElementById('introduction');
 const startButton = document.getElementById('startGame');
 const protospace = document.getElementById('protospaceArea');
@@ -54,10 +55,14 @@ const loseScreen = document.getElementById('loseScreen');
 buttons.forEach(button => {
 	button.addEventListener('mouseover', () => {
 		button.classList.toggle("highlitButton");
+		sound.currentTime = 0.45;
+		sound.volume = 0.1;
+		sound.play();
 	});
 	
 	button.addEventListener('mouseout', () => {
 		button.classList.toggle("highlitButton");
+		sound.pause();
 	});
 });
 
