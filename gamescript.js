@@ -56,7 +56,7 @@ buttons.forEach(button => {
 	button.addEventListener('mouseover', () => {
 		button.classList.toggle("highlitButton");
 		sound.currentTime = 0.45;
-		sound.volume = 0.1;
+		sound.volume = 0.05;
 		sound.play();
 	});
 	
