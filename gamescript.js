@@ -9,18 +9,18 @@ function generateTrait() {
 }
 
 const dictionChoices = [
-	{	sentence: `We must come together, and work as part of a collective ______`,
+	{	sentence: `We must work together, in a collective ______`,
 	
 		ethos: "enterprise",
 		pathos: "concern",
 		logos: "action",
 	},
 	
-	{	sentence: `I understand that your life is difficult, and your days are filled with  ______`,
+	{	sentence: `I understand that your days are filled with  ______`,
 		
 		ethos: "struggle",
 		pathos: "suffering",
-		logos: "exertion",
+		logos: "difficulties",
 	},
 
 	{	sentence: `There are serious issues before us, but we address them with ______ decisions`,
@@ -28,7 +28,21 @@ const dictionChoices = [
 		ethos: "judicious",
 		pathos: "humane",
 		logos: "reasonable",
-	}
+	},
+
+	{	sentence: `Put your trust in me, and my ______ policies will protect your interests.`,
+
+		ethos: "progressive",
+		pathos: "tolerant",
+		logos: "enlightened",
+	},
+
+	{	sentence: `The only thing that can truly make your life better, is ______ work.`,
+
+		ethos: "energetic",
+		pathos: "charitable",
+		logos: "hard",
+	},
 ]
 
 function shuffle(array) {
